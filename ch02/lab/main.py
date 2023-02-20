@@ -1,3 +1,5 @@
+import turtle
+import random
 
 #Part A
 weeks = 16
