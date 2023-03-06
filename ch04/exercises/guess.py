@@ -17,7 +17,7 @@ while True:
         print("Too Low!")
     else:
         guesscount += 1
-        print("Correct!, you guess in", guesscount, "tries!")
+        print("Correct!, you guessed in", guesscount, "tries!")
         break
     guesscount += 1
     print(guesscount)
