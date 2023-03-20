@@ -1,3 +1,8 @@
+import pygame
+
+pygame.init()
+display = pygame.display.set_mode()
+
 ## Part A:
 
 def threenp1(n):
@@ -18,12 +23,30 @@ def threenp1range(upper_limit):
         objs_in_sequence[i] = value
     return objs_in_sequence
 
-def main():    
-    upper_limit = int(input("Input a number >= 2: "))
-    print(threenp1range(upper_limit))
-
-main()
-
-
 
 ## Part B:
+def graph_coordinates(threenplus1_iters_dict):
+
+    pygame.draw.lines(display, "black", True, threenplus1_iters_dict)
+    new_display = pygame.transform.flip(display, False, True)
+    width, height = new_display.get_size()
+    new_display = pygame.transform.scale(new_display, (width * 5, height * 5))
+    display.blit(new_display, (0, 0))
+    
+    max_so_far = 0
+    for i in range(upper_limit):
+        
+
+
+
+
+
+
+def main():
+    display.fill("white")
+    upper_limit = int(input("Input a number >= 2: "))
+    print(threenp1range(upper_limit))
+    threenplus1_iters_dict = threenp1range(upper_limit)
+    graph_coordinates(threenplus1_iters_dict)
+
+main()
