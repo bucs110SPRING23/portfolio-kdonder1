@@ -1,8 +1,5 @@
 import pygame
 
-pygame.init()
-display = pygame.display.set_mode()
-
 ## Part A:
 
 def threenp1(n):
@@ -26,27 +23,39 @@ def threenp1range(upper_limit):
 
 ## Part B:
 def graph_coordinates(threenplus1_iters_dict):
+    pygame.init()
+    display = pygame.display.set_mode()
+    display.fill("white")
+    tup_threenplus1_iters_dict = [(n, iters) for n, iters in threenplus1_iters_dict.items()]
 
-    pygame.draw.lines(display, "black", True, threenplus1_iters_dict)
+    scaledtup_threenplus1_iters_dict = [(10*n, 5*iters) for n, iters in threenplus1_iters_dict.items()]
+
+    pygame.draw.lines(display, "black", True, scaledtup_threenplus1_iters_dict)
     new_display = pygame.transform.flip(display, False, True)
     width, height = new_display.get_size()
     new_display = pygame.transform.scale(new_display, (width * 5, height * 5))
-    display.blit(new_display, (0, 0))
+    display.blit(new_display, (400, 400))
     
-    max_so_far = 0
-    for i in range(upper_limit):
-        
-
-
+    iters_threenplus1_iters_dict = [tup[1] for tup in tup_threenplus1_iters_dict]
+    max_so_far = iters_threenplus1_iters_dict[1]
+    for i in range(len(iters_threenplus1_iters_dict)):
+        if iters_threenplus1_iters_dict[i] > max_so_far:
+            max_so_far = iters_threenplus1_iters_dict[i]
+    
+    font = pygame.font.Font(None, 40)
+    msg = font.render(f"This is the max value from the 3n+1 function: {max_so_far}", True, "black")
+    display.blit(msg, (10, 10))
+    pygame.display.flip()
+    pygame.time.wait(4000)        
 
 
 
 
 def main():
-    display.fill("white")
     upper_limit = int(input("Input a number >= 2: "))
-    print(threenp1range(upper_limit))
     threenplus1_iters_dict = threenp1range(upper_limit)
+    print(threenp1range(upper_limit))
     graph_coordinates(threenplus1_iters_dict)
+    print(graph_coordinates(threenplus1_iters_dict))
 
 main()
