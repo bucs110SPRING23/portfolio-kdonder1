@@ -11,7 +11,7 @@ class Player:
         self.speed = 5
 
 class Score:
-    def __init__(score, player_name):
+    def __init__(score, player_name, x, y):
         """
         Initialize the score board
         Args:
