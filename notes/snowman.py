@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Snowman(pygame.sprite.Sprite):
     
@@ -10,3 +11,7 @@ class Snowman(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+
+    def update(self):
+        self rect.y += random.randint(-10,10)
+        self.rect.x += random.randint(-10,10)
