@@ -34,7 +34,3 @@ class inspirationAPI:
         '''
         quote, author = self.get()
         return f'"{quote}"\n- {author}'
-
-        # quote1 = inspirationAPI(quote=self.params["quote"])
-        # author1 = inspirationAPI(author=self.params["author"])
-        # return quote1, author1
