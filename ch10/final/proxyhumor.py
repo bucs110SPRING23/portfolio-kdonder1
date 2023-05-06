@@ -8,7 +8,7 @@ class humorAPI:
         return: None
         '''
         limit = 1
-        self.url = 'https://api.api-ninjas.com/v1/jokes?limit={}'.format(limit)
+        self.api_url = 'https://api.api-ninjas.com/v1/jokes?limit={}'.format(limit)
         self.params = {
             'type': 'single',
             'category': joke
@@ -20,7 +20,7 @@ class humorAPI:
         args: self
         return: "joke" data
         '''
-        r = requests.get(f'{self.url}?{self.params}', headers={'X-Api-Key':'frEz+k/OaaH4fYcwSsIxUg==myHIK3hhq76k9s6G'})
+        r = requests.get(f'{self.api_url}?{self.params}', headers={'X-Api-Key':'frEz+k/OaaH4fYcwSsIxUg==myHIK3hhq76k9s6G'})
         response = r.json()
         joke_dict = response[0]
         return joke_dict["joke"]

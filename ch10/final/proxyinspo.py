@@ -8,7 +8,7 @@ class inspirationAPI:
         is called
         return: None
         '''
-        self.url = f'https://api.goprogram.ai/inspiration'
+        self.api_url = f'https://api.goprogram.ai/inspiration'
         self.params = {
             'type': 'single',
             'quote': quote,
@@ -21,7 +21,7 @@ class inspirationAPI:
         args: self
         return: "quote" and "author data
         '''
-        r = requests.get(f'{self.url}?{self.params}')
+        r = requests.get(f'{self.api_url}?{self.params}')
         response = r.json()
         inspo_dict = response
         return inspo_dict["quote"], inspo_dict["author"]
